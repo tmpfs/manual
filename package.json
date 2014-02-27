@@ -58,6 +58,7 @@
         ]
       },
       {
+        "text": "Constants are shown below see [index.js](/index.js) for function definitions.",
         "req": "index.js",
         "type": "code",
         "language": "javascript",

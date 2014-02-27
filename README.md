@@ -11,6 +11,8 @@ Used by the [command](https://github.com/freeformsystems/cli-command) module and
 npm i manual
 ```
 
+Constants are shown below see [index.js](https://github.com/freeformsystems/manual/blob/master/index.js) for function definitions.
+
 ```javascript
 {
   "NAME": "name",
