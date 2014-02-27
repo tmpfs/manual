@@ -1,0 +1,71 @@
+{
+  "name": "manual",
+  "version": "0.0.1",
+  "description": "Functions and constants for man page generation",
+  "author": "muji <noop@xpm.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeformsystems/manual"
+  },
+  "bugs": {
+    "url": "https://github.com/freeformsystems/manual/issues",
+    "email": "muji <noop@xpm.io>"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/freeformsystems/manual/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "cli",
+    "manual",
+    "man",
+    "documentation"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mdp": "0.1.7",
+    "mocha": "~1.17.0",
+    "chai": "~1.9.0",
+    "istanbul": "~0.2.4"
+  },
+  "engine": [
+    "node >= 0.10.21"
+  ],
+  "scripts": {
+    "build": "mdp --force -v",
+    "test": "istanbul cover _mocha -- -u bdd --recursive --bail --reporter list -A test/unit/"
+  },
+  "mdp": {
+    "title": {
+      "ref": "name",
+      "format": "%s"
+    },
+    "pedantic": true,
+    "include": "doc/readme",
+    "require": "./",
+    "links": "links.md",
+    "base": "https://github.com/freeformsystems/manual",
+    "partial": [
+      {
+        "ref": "description"
+      },
+      {
+        "inc": [
+          "introduction.md",
+          "install.md"
+        ]
+      },
+      {
+        "req": "index.js",
+        "type": "code",
+        "language": "javascript",
+        "stringify": false
+      },
+      {
+        "inc": ["license.md"]
+      }
+    ]
+  }
+}
