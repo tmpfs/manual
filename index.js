@@ -78,13 +78,13 @@ function section(value) {
 }
 
 function header(key) {
-  if(!key) return key;
-  var value = constants[key.toUpperCase()] || layout[key] || '';
-  return value.toUpperCase();
+  var value = headers[key] || constants[key.toUpperCase()] || '';
+  return value ? value.toUpperCase() : key;
 }
 
 // strip file extension .1 or (1)
 function strip(value) {
+  if(!value) return value;
   value = value.replace(/\.[0-9]$/, '');
   return value.replace(/\([0-9]+\)$/, '')
 }
@@ -109,11 +109,10 @@ function preamble(opts) {
   var version = opts.version || '1.0';
   // section name
   var sname = section(index);
-  var title = opts.title || 'MANUAL';
-
-  // sanitize name in the format: program(1)
-  var name = title.replace(/\([0-9]+\)$/, '')
-  title = name.toUpperCase();
+  var title = opts.title || opts.name;
+  if(!title) {
+    throw new TypeError('manual preamble requires a name or title');
+  }
 
   // use comment
   if(opts.comment) {
@@ -121,15 +120,17 @@ function preamble(opts) {
   }
 
   str += util.format(
-    elements.th, title, index, date, name + ' ' + version, sname);
+    elements.th, strip(title.toUpperCase()),
+    index, date, (strip(opts.name || title)) + ' ' + version, sname);
 
   // add name section
   if(opts.name) {
+    var name = strip(opts.name);
     str += util.format(elements.sh, header(constants.NAME));
     if(opts.description) {
-      str += util.format('%s \\- %s' + EOL, opts.name, opts.description);
+      str += util.format('%s \\- %s' + EOL, name, opts.description);
     }else{
-      str += util.format('%s' + EOL, opts.name);
+      str += util.format('%s' + EOL, name);
     }
   }
   return str;
