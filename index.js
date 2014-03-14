@@ -121,7 +121,8 @@ function preamble(opts) {
 
   str += util.format(
     elements.th, strip(title.toUpperCase()),
-    index, date, (strip(opts.name || title)) + ' ' + version, sname);
+    index, date,
+    (strip(opts.name || title)).replace(/\s+.*$/, '') + ' ' + version, sname);
 
   // add name section
   if(opts.name) {
