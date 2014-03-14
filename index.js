@@ -120,7 +120,7 @@ function preamble(opts) {
   }
 
   str += util.format(
-    elements.th, strip(title.toUpperCase()),
+    elements.th, strip(title.toUpperCase()).replace(/\s+.*$/, ''),
     index, date,
     (strip(opts.name || title)).replace(/\s+.*$/, '') + ' ' + version, sname);
 
