@@ -1,6 +1,6 @@
 {
   "name": "manual",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Functions and constants for man page generation",
   "author": "muji <noop@xpm.io>",
   "repository": {
@@ -65,7 +65,9 @@
         "stringify": false
       },
       {
-        "inc": ["license.md"]
+        "inc": [
+          "license.md"
+        ]
       }
     ]
   }
