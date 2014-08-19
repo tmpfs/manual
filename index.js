@@ -15,8 +15,8 @@ var sections = [
 
 var layout = [
   'name',
-  'description',
   'synopsis',
+  'description',
   'commands',
   'options',
   'environment',
