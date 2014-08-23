@@ -1,6 +1,6 @@
 {
   "name": "manual",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Functions and constants for man page generation",
   "author": "muji <noop@xpm.io>",
   "repository": {
