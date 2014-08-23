@@ -60,6 +60,7 @@ var elements = {
   bl: '.BL' + EOL,
   it: '.IP "\\[ci]" 4' + EOL + '%s' + EOL,
   el: '.EL' + EOL,
+  br: '.BR' + EOL,
   comment: '.\\" %s' + EOL
 };
 
