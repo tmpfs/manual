@@ -49,6 +49,7 @@ var elements = {
   th: '.TH "%s" "%s" "%s" "%s" "%s"' + EOL,
   sh: '.SH "%s"' + EOL,
   ss: '.SS "%s"' + EOL,
+  sp: '.SP' + EOL,
   b: '.B ',
   pp: '.PP' + EOL + '%s' + EOL,
   tp: '.TP' + EOL,
@@ -60,7 +61,7 @@ var elements = {
   bl: '.BL' + EOL,
   it: '.IP "\\[ci]" 4' + EOL + '%s' + EOL,
   el: '.EL' + EOL,
-  br: '.BR' + EOL,
+  br: '.br' + EOL,
   comment: '.\\" %s' + EOL
 };
 
@@ -140,6 +141,7 @@ function preamble(opts) {
 
 function sanitize(value) {
   value = value.replace(/-/g, '\\-');
+  value = value.replace(/\r?\n/g, EOL + elements.br);
   return value;
 }
 
