@@ -140,8 +140,10 @@ function preamble(opts) {
 }
 
 function sanitize(value) {
-  value = value.replace(/-/g, '\\-');
-  value = value.replace(/\r?\n/g, EOL + elements.br);
+  value = value.replace(/\\\n/gm, '\\e\n');
+  value = value.replace(/-/gm, '\\-');
+  //value = value.replace(/\\/, '\e');
+  value = value.replace(/\r?\n/gm, EOL + elements.br);
   return value;
 }
 
