@@ -1,2 +1,2 @@
-[mdp]: https://github.com/freeformsystems/mdp
-[command]: https://github.com/freeformsystems/cli-command 
+[mdp]: https://github.com/tmpfs/mdp
+[command]: https://github.com/cli-kit/cli-command 
