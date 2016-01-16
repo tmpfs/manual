@@ -3,6 +3,10 @@ manual
 
 Functions and constants for man page generation.
 
+[<img src="https://travis-ci.org/tmpfs/manual.svg" alt="Build Status">](https://travis-ci.org/tmpfs/manual)
+[<img src="http://img.shields.io/npm/v/manual.svg" alt="npm version">](https://npmjs.org/package/manual)
+[<img src="https://coveralls.io/repos/tmpfs/manual/badge.svg?branch=master&service=github&v=1" alt="Coverage Status">](https://coveralls.io/github/tmpfs/manual?branch=master).
+
 Used by the [command](https://github.com/cli-kit/cli-command) module and the [mdp](https://github.com/tmpfs/mdp) program.
 
 ## Install
