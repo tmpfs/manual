@@ -28,9 +28,12 @@
     "node >= 0.10.21"
   ],
   "scripts": {
+    "lint": "jshint . && jscs .",
+    "clean": "rm -rf ./coverage",
     "readme": "mdp --force -v",
     "test": "mocha test/spec",
-    "cover": "istanbul cover _mocha -- test/spec"
+    "cover": "istanbul cover _mocha -- test/spec",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "mdp": {
     "title": {
@@ -61,6 +64,7 @@
       },
       {
         "inc": [
+          "developer.md",
           "license.md"
         ]
       }
