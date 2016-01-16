@@ -75,7 +75,9 @@ function ends(value) {
 
 function section(value) {
   var index = parseInt(value);
-  if(isNaN(index)) index = 1;
+  if(isNaN(index)) {
+    index = 1;
+  }
   return sections[index - 1];
 }
 
@@ -86,7 +88,9 @@ function header(key) {
 
 // strip file extension .1 or (1)
 function strip(value) {
-  if(!value) return value;
+  if(!value) {
+    return value;
+  }
   value = value.replace(/\.[0-9]$/, '');
   return value.replace(/\([0-9]+\)$/, '')
 }
@@ -121,14 +125,18 @@ function preamble(opts) {
     str += util.format(elements.comment, opts.comment);
   }
 
+  //console.dir(title)
+
   str += util.format(
-    elements.th, strip(title.toUpperCase()).replace(/\s+.*$/, ''),
+    elements.th,
+    strip(title.toUpperCase()),
     index, date,
     (strip(opts.name || title)).replace(/\s+.*$/, '') + ' ' + version, sname);
 
   // add name section
   if(opts.name) {
     var name = strip(opts.name);
+    console.dir(name)
     str += util.format(elements.sh, header(constants.NAME));
     if(opts.description) {
       str += util.format('%s \\- %s' + EOL, name, opts.description);
