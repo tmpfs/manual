@@ -3,39 +3,34 @@
   "version": "0.0.8",
   "description": "Functions and constants for man page generation",
   "author": "muji <noop@xpm.io>",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeformsystems/manual"
+    "url": "https://github.com/tmpfs/manual"
   },
   "bugs": {
-    "url": "https://github.com/freeformsystems/manual/issues",
+    "url": "https://github.com/tmpfs/manual/issues",
     "email": "muji <noop@xpm.io>"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/freeformsystems/manual/blob/master/LICENSE"
-    }
-  ],
   "keywords": [
     "cli",
     "manual",
     "man",
     "documentation"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "mdp": "0.1.7",
-    "mocha": "~1.17.0",
-    "chai": "~1.9.0",
-    "istanbul": "~0.2.4"
+    "chai": "~3.4.1",
+    "coveralls": "~2.11.6",
+    "istanbul": "~0.4.2",
+    "mocha": "~2.3.4"
   },
   "engine": [
     "node >= 0.10.21"
   ],
   "scripts": {
-    "build": "mdp --force -v",
-    "test": "istanbul cover _mocha -- -u bdd --recursive --bail --reporter list -A test/unit/"
+    "readme": "mdp --force -v",
+    "test": "mocha test/spec",
+    "cover": "istanbul cover _mocha -- test/spec"
   },
   "mdp": {
     "title": {
@@ -46,7 +41,7 @@
     "include": "doc/readme",
     "require": "./",
     "links": "links.md",
-    "base": "https://github.com/freeformsystems/manual",
+    "base": "https://github.com/tmpfs/manual",
     "partial": [
       {
         "ref": "description"
