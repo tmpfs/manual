@@ -136,7 +136,6 @@ function preamble(opts) {
   // add name section
   if(opts.name) {
     var name = strip(opts.name);
-    console.dir(name)
     str += util.format(elements.sh, header(constants.NAME));
     if(opts.description) {
       str += util.format('%s \\- %s' + EOL, name, opts.description);
@@ -148,7 +147,7 @@ function preamble(opts) {
 }
 
 function sanitize(value) {
-  value = value.replace(/\\\n/gm, '\\e\n');
+  value = value.replace(/\\+\n/gm, '\\e\n');
   value = value.replace(/-/gm, '\\-');
   //value = value.replace(/\\/, '\e');
   value = value.replace(/\r?\n/gm, EOL + elements.br);
